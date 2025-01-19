@@ -1,0 +1,27 @@
+﻿<Window x:Class="incity_test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:incity_test"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+            <Button Content="Загрузить JSON" Command="{Binding LoadJsonCommand}" Margin="0,0,5,0" Width="100" />
+        </StackPanel>
+        <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="GUID" Binding="{Binding Guid}" />
+                <DataGridTextColumn Header="Дата Регистрации" Binding="{Binding RegistrationDate, StringFormat=d}" />
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Фактический адрес" Binding="{Binding ActualAddress}" />
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
